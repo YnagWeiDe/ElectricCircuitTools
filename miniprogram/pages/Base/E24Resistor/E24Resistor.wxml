@@ -1,0 +1,47 @@
+<!-- WXML -->
+<view class="container">
+  <!-- 标题区域 -->
+  <view class="header">
+    <text class="title">E24系列电阻值计算器</text>
+    <text class="subtitle">输入3位代码，实时计算电阻值</text>
+  </view>
+  
+  <!-- 输入区域 -->
+  <view class="card input-section">
+    <input 
+      class="code-input" 
+      placeholder="输入3位代码" 
+      maxlength="3"
+      value="{{code}}"
+      bindinput="onCodeInput"
+    />
+    <view class="input-underline"></view>
+  </view>
+  
+  <!-- 结果区域 -->
+  <view class="card result-section">
+    <view class="result-header">
+      <text class="result-title">计算结果</text>
+      <text class="result-value">{{resistanceValue}}</text>
+    </view>
+    
+    <view class="result-breakdown">
+      <text class="breakdown-title">解析过程：</text>
+      <text class="breakdown-text">{{breakdownText}}</text>
+    </view>
+  </view>
+  
+  <!-- 提示区域 -->
+  <view class="card instruction">
+    <view class="instruction-header">
+      <text class="instruction-title">使用说明</text>
+    </view>
+    
+    <view class="instruction-content">
+      <text class="instruction-item">• 三位数字代码：前两位是有效数字，第三位是乘数（10的幂次）</text>
+      <text class="instruction-item">• 例如：102 = 10 × 10² = 1000Ω = 1kΩ</text>
+      <text class="instruction-item">• 带R的代码：1R2 = 1.2Ω，R12 = 0.12Ω</text>
+      <text class="instruction-item">• 输入3位代码后结果将自动计算并显示</text>
+    </view>
+  </view>
+</view>

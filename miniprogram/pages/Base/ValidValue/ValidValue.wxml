@@ -1,0 +1,94 @@
+<view class="container">
+  <view class="card">
+    <text class="page-title">交流信号计算</text>
+    
+    <!-- 峰值电压输入组 -->
+    <view class="input-group">
+      <text class="label">峰值电压:</text>
+      <input 
+        type="number" 
+        placeholder="输入峰值电压" 
+        value="{{peakVoltage}}" 
+        bindinput="onPeakVoltageInput" 
+        class="input"
+      />
+      <picker 
+        range="{{voltageUnits}}" 
+        value="{{voltageUnitIndex}}" 
+        bindchange="onVoltageUnitChange"
+        class="unit-picker"
+      >
+        <view class="picker">{{voltageUnits[voltageUnitIndex]}}</view>
+      </picker>
+    </view>
+    
+    <!-- 频率输入组 -->
+    <view class="input-group">
+      <text class="label">频率:</text>
+      <input 
+        type="number" 
+        placeholder="输入频率" 
+        value="{{frequency}}" 
+        bindinput="onFrequencyInput" 
+        class="input"
+      />
+      <picker 
+        range="{{frequencyUnits}}" 
+        value="{{frequencyUnitIndex}}" 
+        bindchange="onFrequencyUnitChange"
+        class="unit-picker"
+      >
+        <view class="picker">{{frequencyUnits[frequencyUnitIndex]}}</view>
+      </picker>
+    </view>
+    
+    <!-- 初始相位输入组 -->
+    <view class="input-group">
+      <text class="label">初始相位:</text>
+      <input 
+        type="number" 
+        placeholder="可选输入" 
+        value="{{initialPhase}}" 
+        bindinput="onInitialPhaseInput" 
+        class="input"
+      />
+      <picker 
+        range="{{phaseUnits}}" 
+        value="{{phaseUnitIndex}}" 
+        bindchange="onPhaseUnitChange"
+        class="unit-picker"
+      >
+        <view class="picker">{{phaseUnits[phaseUnitIndex]}}</view>
+      </picker>
+    </view>
+    
+    <button type="primary" bindtap="calculate" class="button">计算</button>
+    
+    <view class="result" wx:if="{{showResults}}">
+      <view class="result-row">
+        <text class="result-label">有效值(RMS):</text>
+        <text class="result-value">{{rmsValue}}</text>
+      </view>
+      
+      <view class="result-row">
+        <text class="result-label">角频率(ω):</text>
+        <text class="result-value">{{angularFrequency}} rad/s</text>
+      </view>
+      
+      <view class="result-row">
+        <text class="result-label">瞬时电压表达式:</text>
+        <text class="result-expression">{{voltageExpression}}</text>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 固定在底部的提示 -->
+  <view class="fixed-hint">
+    <text>提示：</text>
+    <text>1. 峰值电压和频率必须输入</text>
+    <text>2. 有效值 = 峰值电压 / √2</text>
+    <text>3. 角频率 ω = 2π × 频率</text>
+    <text>4. 瞬时电压公式：v(t) = Vmax × sin(ωt + φ)</text>
+    <text>5. 初始相位φ可选，单位度(°)或弧度(rad)</text>
+  </view>
+</view>

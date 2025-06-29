@@ -1,0 +1,75 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/AnalogCircuit/AnalogCircuit",
+    "pages/DigitalCircuit/DigitalCircuit",
+    "pages/ActualCircuit/ActualCircuit",
+    "pages/BasicCircuit/BasicCircuit",
+    "pages/Base/CapacitanceValue/CapacitanceValue",
+    "pages/Base/CurrentVoltageResistance/CurrentVoltageResistance",
+    "pages/Base/Impedance/Impedance",
+    "pages/Base/ResistanceValue/ResistanceValue",
+    "pages/Base/Resonance/Resonance",
+    "pages/Base/ValidValue/ValidValue",
+    "pages/Base/ResonanceT/ResonanceT",
+    "pages/Base/ColorResistor/ColorResistor",
+    "pages/Base/E24Resistor/E24Resistor",
+    "pages/Base/E26LetterResistor/E26LetterResistor",
+    "pages/Digital/RadixConvert/RadixConvert",
+    "pages/Digital/Logic/Logic",
+    "pages/Digital/TruthTable/TruthTable",
+    "pages/Digital/CommonlyDigital/CommonlyDigital",
+    "pages/Analog/CommonEmitter/CommonEmitter",
+    "pages/Analog/Transistor/Transistor",
+    "pages/Analog/BaseElectrode/BaseElectrode",
+    "pages/Analog/Collector/Collector",
+    "pages/Base/GetVef/GetVef",
+    "pages/Actual/GetRes/GetRes",
+    "pages/Analog/InverseRatio/InverseRatio",
+    "pages/Analog/Proportionally/Proportionally"
+  ],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "Weixin",
+    "navigationBarBackgroundColor": "#ffffff"
+  },
+  "style": "v2",
+  "componentFramework": "glass-easel",
+  "lazyCodeLoading": "requiredComponents",
+  "tabBar": {
+    "selectedColor": "#1296db",
+    "list": [
+      {
+        "pagePath": "pages/ActualCircuit/ActualCircuit",
+        "text": "实际电路",
+        "iconPath": "images/mic.png",
+        "selectedIconPath": "images/mic2.png"
+      },
+      {
+        "pagePath": "pages/AnalogCircuit/AnalogCircuit",
+        "text": "模拟电路",
+        "iconPath": "images/Ang.png",
+        "selectedIconPath": "images/Ang2.png"
+      },
+      {
+        "pagePath": "pages/index/index",
+        "text": "主界面",
+        "iconPath": "images/feek.png",
+        "selectedIconPath": "images/feek2.png"
+      },
+      {
+        "pagePath": "pages/BasicCircuit/BasicCircuit",
+        "text": "基础电路",
+        "iconPath": "images/Res.png",
+        "selectedIconPath": "images/Res2.png"
+      },
+      {
+        "pagePath": "pages/DigitalCircuit/DigitalCircuit",
+        "text": "数字电路",
+        "iconPath": "images/Dig.png",
+        "selectedIconPath": "images/Dig2.png"
+      }
+    ]
+  }
+}

@@ -1,0 +1,90 @@
+<view class="container">
+  <view class="card">
+    <text class="page-title">频率下容感计算</text>
+    
+    <!-- 频率输入组 -->
+    <view class="input-group">
+      <text class="label">频率:</text>
+      <input 
+        type="number" 
+        placeholder="输入频率" 
+        value="{{frequencyValue}}" 
+        bindinput="onFrequencyInput" 
+        class="input"
+      />
+      <picker 
+        range="{{frequencyUnits}}" 
+        value="{{frequencyUnitIndex}}" 
+        bindchange="onFrequencyUnitChange"
+        class="unit-picker"
+      >
+        <view class="picker">{{frequencyUnits[frequencyUnitIndex]}}</view>
+      </picker>
+    </view>
+    
+    <!-- 电容输入组 -->
+    <view class="input-group">
+      <text class="label">电容:</text>
+      <input 
+        type="number" 
+        placeholder="输入电容" 
+        value="{{capacitanceValue}}" 
+        bindinput="onCapacitanceInput" 
+        class="input"
+      />
+      <picker 
+        range="{{capacitanceUnits}}" 
+        value="{{capacitanceUnitIndex}}" 
+        bindchange="onCapacitanceUnitChange"
+        class="unit-picker"
+      >
+        <view class="picker">{{capacitanceUnits[capacitanceUnitIndex]}}</view>
+      </picker>
+    </view>
+    
+    <!-- 电感输入组 -->
+    <view class="input-group">
+      <text class="label">电感:</text>
+      <input 
+        type="number" 
+        placeholder="输入电感" 
+        value="{{inductanceValue}}" 
+        bindinput="onInductanceInput" 
+        class="input"
+      />
+      <picker 
+        range="{{inductanceUnits}}" 
+        value="{{inductanceUnitIndex}}" 
+        bindchange="onInductanceUnitChange"
+        class="unit-picker"
+      >
+        <view class="picker">{{inductanceUnits[inductanceUnitIndex]}}</view>
+      </picker>
+    </view>
+    
+    <button type="primary" bindtap="calculate" class="button">计算</button>
+    
+    <view class="result" wx:if="{{showResults}}">
+      <!-- 电容结果行 -->
+      <view class="result-row" wx:if="{{capacitiveReactance}}">
+        <text class="result-label">电容阻抗(容抗):</text>
+        <text class="result-value">{{capacitiveReactance}}</text>
+      </view>
+      
+      <!-- 电感结果行 -->
+      <view class="result-row" wx:if="{{inductiveReactance}}">
+        <text class="result-label">电感阻抗(感抗):</text>
+        <text class="result-value">{{inductiveReactance}}</text>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 固定在底部的提示 -->
+  <view class="fixed-hint">
+    <text>提示：</text>
+    <text>1. 频率必须输入</text>
+    <text>2. 电容或电感至少输入一个</text>
+    <text>3. 计算公式：容抗 = 1 / (2π × 频率 × 电容)</text>
+    <text>4. 计算公式：感抗 = 2π × 频率 × 电感</text>
+  </view>
+</view>

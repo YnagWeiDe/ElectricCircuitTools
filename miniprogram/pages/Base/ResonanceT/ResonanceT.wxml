@@ -1,0 +1,96 @@
+<view class="container">
+  <view class="card">
+    <text class="page-title">谐振参数计算</text>
+    
+    <!-- 谐振频率输入组 -->
+    <view class="input-group">
+      <text class="label">谐振频率:</text>
+      <input 
+        type="number" 
+        placeholder="输入频率" 
+        value="{{frequencyValue}}" 
+        bindinput="onFrequencyInput" 
+        class="input"
+      />
+      <picker 
+        range="{{frequencyUnits}}" 
+        value="{{frequencyUnitIndex}}" 
+        bindchange="onFrequencyUnitChange"
+        class="unit-picker"
+      >
+        <view class="picker">{{frequencyUnits[frequencyUnitIndex]}}</view>
+      </picker>
+    </view>
+    
+    <!-- 电容输入组 -->
+    <view class="input-group">
+      <text class="label">电容:</text>
+      <input 
+        type="number" 
+        placeholder="输入电容" 
+        value="{{capacitanceValue}}" 
+        bindinput="onCapacitanceInput" 
+        class="input"
+      />
+      <picker 
+        range="{{capacitanceUnits}}" 
+        value="{{capacitanceUnitIndex}}" 
+        bindchange="onCapacitanceUnitChange"
+        class="unit-picker"
+      >
+        <view class="picker">{{capacitanceUnits[capacitanceUnitIndex]}}</view>
+      </picker>
+    </view>
+    
+    <!-- 电感输入组 -->
+    <view class="input-group">
+      <text class="label">电感:</text>
+      <input 
+        type="number" 
+        placeholder="输入电感" 
+        value="{{inductanceValue}}" 
+        bindinput="onInductanceInput" 
+        class="input"
+      />
+      <picker 
+        range="{{inductanceUnits}}" 
+        value="{{inductanceUnitIndex}}" 
+        bindchange="onInductanceUnitChange"
+        class="unit-picker"
+      >
+        <view class="picker">{{inductanceUnits[inductanceUnitIndex]}}</view>
+      </picker>
+    </view>
+    
+    <button type="primary" bindtap="calculate" class="button">计算</button>
+    
+    <view class="result" wx:if="{{showResults}}">
+      <!-- 计算结果 -->
+      <view class="result-row" wx:if="{{calculatedCapacitance}}">
+        <text class="result-label">计算电容:</text>
+        <text class="result-value">{{calculatedCapacitance}}</text>
+      </view>
+      
+      <view class="result-row" wx:if="{{calculatedInductance}}">
+        <text class="result-label">计算电感:</text>
+        <text class="result-value">{{calculatedInductance}}</text>
+      </view>
+      
+      <view class="result-row" wx:if="{{characteristicImpedance}}">
+        <text class="result-label">特性阻抗:</text>
+        <text class="result-value">{{characteristicImpedance}}</text>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 固定在底部的提示 -->
+  <view class="fixed-hint">
+    <text>提示：</text>
+    <text>1. 谐振频率必须输入,参数全输入则验证</text>
+    <text>2. 电容或电感至少输入一个</text>
+    <text>3. 计算公式：电容 C = 1 / (4π²f²L)</text>
+    <text>4. 计算公式：电感 L = 1 / (4π²f²C)</text>
+    <text>5. 计算公式：特性阻抗 Z = √(L/C)</text>
+    <text>6. 单位换算：1MHz = 10⁶Hz, 1μF = 10⁻⁶F, 1μH = 10⁻⁶H</text>
+  </view>
+</view>

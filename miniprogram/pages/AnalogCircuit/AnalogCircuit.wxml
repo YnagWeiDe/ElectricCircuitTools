@@ -1,0 +1,42 @@
+<!-- pages/community/community.wxml -->
+<view class="container">
+  <view class="nav-bar">
+    <view class="nav-btn" bindtap="handleBack">
+      <icon type="back" size="20" color="#333"></icon>
+    </view>
+    <text class="nav-title">模拟电路计算</text>
+  </view>
+
+  <!-- 内容区域 -->
+  <scroll-view class="main-content" scroll-y>
+    <!-- 双列网格布局 -->
+    <view class="grid-container">
+      <!--里面包含串并联计算 -->
+      <view class="card ResistanceValue-card" bindtap="ToTransistor">
+        <text class="card-title">三极管参数计算</text>
+        <text class="card-desc">共射共基共集</text>
+      </view>
+
+      <view class="card CapacitanceValue-card "bindtap="IsErr">
+        <text class="card-title">Mos管参数计算</text>
+        <text class="card-desc">带参数电容</text>
+      </view>
+
+      <view class="card Impedance-card" bindtap="ToInverseRatio">
+        <text class="card-title">运放反比计算</text>
+        <text class="card-desc">计算E24电阻搭配</text>
+      </view>
+
+      <view class="card CurrentVoltageResistance-card" bindtap="ToProportionally">
+        <text class="card-title">运放同比计算</text>
+        <text class="card-desc">计算器E24电阻搭配</text>
+      </view>
+      
+
+
+      
+
+
+    </view>
+  </scroll-view>
+</view>

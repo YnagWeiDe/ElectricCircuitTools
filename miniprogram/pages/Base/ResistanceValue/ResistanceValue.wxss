@@ -1,0 +1,45 @@
+/* pages/community/community.wxss */
+/* 保持原有导航栏样式 */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 20rpx;
+    padding: 30rpx;
+    /* 新增内容居中属性 */
+    justify-items: center; /* 水平居中 */
+    align-items: center;   /* 垂直居中 */
+  }
+  
+  .card {
+    height: 80rpx;
+    width: 80%;
+    border-radius: 24rpx;
+    padding: 30rpx;
+    margin: 10rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: 0 4rpx 12rpx rgba(0,0,0,0.08);
+  }
+  
+  .card-title {
+    font-size: 36rpx;
+    color: #fff;
+    font-weight: 600;
+    margin-bottom: 12rpx;
+  }
+  
+  /* 小字部分 */
+  .card-desc {
+    font-size: 20rpx;
+    color: rgba(255,255,255,0.9);
+
+  }
+  
+  /* 各卡片渐变色 */
+  .T1-card { background: linear-gradient(135deg, #FF9A8B, #FF6B6B) }
+  .T2-card { background: linear-gradient(135deg, #4ECDC4, #45B7AF) }
+  .T3-card { background: linear-gradient(135deg, #A389F4, #7B61FF) }
+  .T4-card { background: linear-gradient(135deg, #FFD93D, #FFC107) }
+  .T5-card{ background: linear-gradient(135deg,#c53232,#d40404)}
+  .T6-card{ background: linear-gradient(135deg,#c53232,#d40404)}

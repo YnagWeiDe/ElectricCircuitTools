@@ -1,0 +1,111 @@
+<!-- WXML -->
+<view class="container">
+  <!-- 标题区域 -->
+  <view class="header">
+    <text class="title">逻辑操作符与触发器真值表工具</text>
+    <text class="subtitle">选择逻辑操作符或触发器类型，查看对应的真值表</text>
+  </view>
+  
+  <!-- 选择区域 -->
+  <view class="card selector-section">
+    <view class="selector-group">
+      <text class="selector-label">逻辑操作符：</text>
+      <picker 
+        value="{{gateIndex}}" 
+        range="{{gateList}}" 
+        bindchange="onGateChange"
+        class="selector"
+      >
+        <view class="picker-view">
+          <text wx:if="{{currentType === 'gate'}}">{{gateList[gateIndex]}}</text>
+          <text wx:else class="placeholder">请选择逻辑操作符</text>
+          <image src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%231a56db'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E" class="down-icon" />
+        </view>
+      </picker>
+    </view>
+    
+    <view class="divider"></view>
+    
+    <view class="selector-group">
+      <text class="selector-label">触发器类型：</text>
+      <picker 
+        value="{{flipflopIndex}}" 
+        range="{{flipflopList}}" 
+        bindchange="onFlipflopChange"
+        class="selector"
+      >
+        <view class="picker-view">
+          <text wx:if="{{currentType === 'flipflop'}}">{{flipflopList[flipflopIndex]}}</text>
+          <text wx:else class="placeholder">请选择触发器类型</text>
+          <image src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%231a56db'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E" class="down-icon" />
+        </view>
+      </picker>
+    </view>
+  </view>
+  
+  <!-- 真值表区域 -->
+  <view class="card table-section">
+    <view class="section-header">
+      <text class="section-title">{{currentTable.title}}真值表</text>
+      <text class="section-subtitle">{{currentTable.description}}</text>
+    </view>
+    
+    <scroll-view scroll-x class="table-container">
+      <view class="table">
+        <!-- 表头 -->
+        <view class="table-row header-row">
+          <block wx:for="{{currentTable.headers}}" wx:key="index">
+            <view class="table-cell header-cell">{{item}}</view>
+          </block>
+        </view>
+        
+        <!-- 表体 -->
+        <block wx:for="{{currentTable.rows}}" wx:key="index">
+          <view class="table-row">
+            <block wx:for="{{item}}" wx:key="index">
+              <view class="table-cell">{{item}}</view>
+            </block>
+          </view>
+        </block>
+      </view>
+    </scroll-view>
+  </view>
+  
+  <!-- 说明区域 -->
+  <view class="card instruction-section">
+    <view class="section-header">
+      <text class="section-title">符号说明</text>
+    </view>
+    
+    <view class="instruction-grid">
+      <view class="instruction-item">
+        <text class="symbol">Q</text>
+        <text class="symbol-text">当前状态输出</text>
+      </view>
+      <view class="instruction-item">
+        <text class="symbol">Q'</text>
+        <text class="symbol-text">下一状态输出</text>
+      </view>
+      <view class="instruction-item">
+        <text class="symbol">CLK</text>
+        <text class="symbol-text">时钟信号</text>
+      </view>
+      <view class="instruction-item">
+        <text class="symbol">↑</text>
+        <text class="symbol-text">上升沿触发</text>
+      </view>
+      <view class="instruction-item">
+        <text class="symbol">X</text>
+        <text class="symbol-text">任意值 (0或1)</text>
+      </view>
+      <view class="instruction-item">
+        <text class="symbol">-</text>
+        <text class="symbol-text">状态保持不变</text>
+      </view>
+    </view>
+  </view>
+  
+  <view class="info-box">
+    <text>提示：选择逻辑操作符或触发器类型后，系统会自动显示对应的真值表。两个选择器是互斥的，选择其中一个将自动取消另一个的选择。</text>
+  </view>
+</view>

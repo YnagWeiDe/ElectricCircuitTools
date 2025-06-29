@@ -1,0 +1,65 @@
+<!-- pages/community/community.wxml -->
+<view class="container">
+  <!-- 导航栏 todo 样式还没做 -->
+  <view class="nav-bar">
+    <view class="nav-btn" bindtap="handleBack">
+      <icon type="back" size="20" color="#333"></icon>
+    </view>
+    <text class="nav-title">基础电路计算</text>
+  </view>
+
+  <!-- 内容区域 -->
+  <scroll-view class="main-content" scroll-y>
+    <!-- 双列网格布局 -->
+    <view class="grid-container">
+      <!--里面包含串并联计算 -->
+      <view class="card ResistanceValue-card" bindtap="ToResistanceValue">
+    <text class="card-title">电阻值计算</text>
+    <text class="card-desc">色环电阻和贴片电阻</text>
+  </view>
+
+  <!-- 电容值计算卡片 -->
+  <view class="card CapacitanceValue-card" bindtap="ToCapacitanceValue">
+    <text class="card-title">电容值计算</text>
+    <text class="card-desc">带参数电容</text>
+  </view>
+
+  <!-- 基础电源计算卡片 -->
+  <view class="card CurrentVoltageResistance-card" bindtap="ToCurrentVoltageResistance">
+    <text class="card-title">基础电源计算</text>
+    <text class="card-desc">计算电阻、电流、电压</text>
+  </view>
+
+  <!-- 频率下容感计算卡片 -->
+  <view class="card Impedance-card" bindtap="ToImpedance">
+    <text class="card-title">频率下容感计算</text>
+    <text class="card-desc">容感阻抗计算</text>
+  </view>
+
+  <!-- 谐振相关计算卡片 -->
+  <view class="card Resonance-card" bindtap="ToResonance1">
+    <text class="card-title">谐振相关计算</text>
+    <text class="card-desc">谐振点与谐振阻抗计算</text>
+  </view>
+
+   <!-- 谐振相关计算卡片 -->
+   <view class="card Resonance-card" bindtap="ToResonanceFrequency">
+    <text class="card-title">谐振相关计算</text>
+    <text class="card-desc">某谐振点下的容值或感值</text>
+  </view>
+
+  <!-- 交流有效值计算卡片 -->
+  <view class="card ValidValue-card" bindtap="ToValidValue">
+    <text class="card-title">正弦波计算</text>
+    <text class="card-desc">常见的参数计算</text>
+  </view>
+
+    <!-- 电容值计算卡片 -->
+    <view class="card CapacitanceValue-card" bindtap="ToGetVef">
+    <text class="card-title">计算参考Vef</text>
+    <text class="card-desc">电阻分压</text>
+  </view>
+
+    </view>
+  </scroll-view>
+</view>

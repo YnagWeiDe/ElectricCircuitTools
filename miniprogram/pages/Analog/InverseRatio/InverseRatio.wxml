@@ -1,0 +1,99 @@
+<!-- index.wxml -->
+<view class="container">
+  <!-- 头部标题 -->
+  <view class="header">
+    <view class="title">反相比例运算放大器电阻计算器</view>
+    <view class="subtitle">输入电压UI和输出电压UO（极性相反），计算反馈电阻Rf和输入电阻R1</view>
+  </view>
+
+  <!-- 输入区域 -->
+  <view class="card input-section">
+    <!-- 输入电压 UI -->
+    <view class="input-item">
+      <text class="input-label">输入电压 UI:</text>
+      <view class="input-row">
+        <input 
+          class="input-value" 
+          type="digit" 
+          placeholder="输入数值"
+          value="{{UI}}"
+          bindinput="onUIInput"
+        />
+        <picker class="unit-picker" range="{{voltageUnits}}" value="{{UIUnitIndex}}" bindchange="onUIUnitChange">
+          <view class="picker-view">{{voltageUnits[UIUnitIndex]}}</view>
+        </picker>
+      </view>
+    </view>
+    
+    <!-- 输出电压 UO -->
+    <view class="input-item">
+      <text class="input-label">输出电压 UO:</text>
+      <view class="input-row">
+        <input 
+          class="input-value" 
+          type="digit" 
+          placeholder="输入数值（绝对值）"
+          value="{{UO}}"
+          bindinput="onUOInput"
+        />
+        <picker class="unit-picker" range="{{voltageUnits}}" value="{{UOUnitIndex}}" bindchange="onUOUnitChange">
+          <view class="picker-view">{{voltageUnits[UOUnitIndex]}}</view>
+        </picker>
+      </view>
+    </view>
+    
+    <!-- 计算按钮 -->
+    <button class="calculate-btn" bindtap="calculateResistors">计算电阻组合</button>
+    
+    <!-- 加载指示器 -->
+    <view class="loading" wx:if="{{isCalculating}}">
+      <text>计算中... {{progress}}%</text>
+      <progress percent="{{progress}}" stroke-width="6" activeColor="#07C160" />
+    </view>
+  </view>
+
+  <!-- 结果表格 -->
+  <view class="card result-section" wx:if="{{resistorPairs.length > 0}}">
+    <view class="result-header">
+      <text class="result-title">推荐电阻组合 (误差 小于 1%)</text>
+      <text class="result-count">共 {{resistorPairs.length}} 组</text>
+    </view>
+    
+    <view class="table-header">
+      <text class="table-cell">R1</text>
+      <text class="table-cell">Rf</text>
+      <text class="table-cell">误差(%)</text>
+    </view>
+    
+    <scroll-view class="result-list" scroll-y style="height: 400rpx;">
+      <block wx:for="{{resistorPairs}}" wx:key="index">
+        <view class="table-row">
+          <view class="table-cell">{{item.R1}}</view>
+          <view class="table-cell">{{item.Rf}}</view>
+          <view 
+            class="table-cell error-value {{item.error < 0.1 ? 'low-error' : (item.error < 0.5 ? 'medium-error' : 'high-error')}}">
+            {{item.error}}%
+          </view>
+        </view>
+      </block>
+    </scroll-view>
+  </view>
+
+  <!-- 无结果提示 -->
+  <view class="card no-result" wx:if="{{showNoResult}}">
+    <text class="no-result-text">未找到符合条件的电阻组合</text>
+    <text class="no-result-hint">请尝试调整输入值或放宽误差要求</text>
+  </view>
+
+  <!-- 说明区域 -->
+  <view class="card instruction-section">
+    <view class="instruction-title">计算原理说明</view>
+    <view class="instruction-content">
+      <text>1. 根据公式：UO = -(Rf/R1) * UI</text>
+      <text>2. 计算满足条件的电阻组合 (0Ω ≤ R1, Rf ≤ 1MΩ)</text>
+      <text>3. 误差 = |(实际比例 - 目标比例)| / 目标比例 × 100%</text>
+      <text>4. 系统使用E24标准电阻序列进行计算</text>
+      <text>5. 误差值越小表示精度越高</text>
+    </view>
+  </view>
+</view>

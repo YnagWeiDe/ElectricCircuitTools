@@ -1,0 +1,34 @@
+<!-- pages/community/community.wxml -->
+<view class="container">
+  <!-- 导航栏 todo 样式还没做 -->
+  <view class="nav-bar">
+    <view class="nav-btn" bindtap="handleBack">
+      <icon type="back" size="20" color="#333"></icon>
+    </view>
+    <text class="nav-title">电阻选择</text>
+  </view>
+
+  <!-- 内容区域 -->
+  <scroll-view class="main-content" scroll-y>
+    <!-- 双列网格布局 -->
+    <view class="grid-container">
+      <!--里面包含串并联计算 -->
+
+      <view class="card T1-card" bindtap="ToColorResistor">
+        <text class="card-title">色环电阻</text>
+        <text class="card-desc">4色、5色、6色电阻</text>
+      </view>
+
+      <view class="card T2-card"  bindtap="ToE24Resistor">
+        <text class="card-title">贴片电阻-3位</text>
+        <text class="card-desc">E24系列 精度±5%</text>
+      </view>
+
+      <view class="card T3-card" bindtap="ToE96LetterResistor">
+        <text class="card-title">贴片电阻-字母</text>
+        <text class="card-desc">E96系列 精度±1%</text>
+      </view>
+
+    </view>
+  </scroll-view>
+</view>

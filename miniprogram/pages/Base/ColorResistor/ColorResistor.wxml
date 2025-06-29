@@ -1,0 +1,91 @@
+<view class="container">
+  <!-- 标题区域 -->
+  <view class="header">
+    <text class="title">色环电阻值分析器</text>
+    <text class="subtitle">选择色环类型和颜色，实时计算电阻值</text>
+  </view>
+  
+  <!-- 色环类型选择 -->
+  <view class="section">
+    <text class="section-title">选择色环类型</text>
+    <radio-group class="radio-group" bindchange="onBandTypeChange">
+      <label class="radio-item">
+        <radio value="4" checked="{{bandType === 4}}" color="#64ffda" />
+        <text>4 色环电阻</text>
+      </label>
+      <label class="radio-item">
+        <radio value="5" checked="{{bandType === 5}}" color="#64ffda" />
+        <text>5 色环电阻</text>
+      </label>
+      <label class="radio-item">
+        <radio value="6" checked="{{bandType === 6}}" color="#64ffda" />
+        <text>6 色环电阻</text>
+      </label>
+    </radio-group>
+  </view>
+  
+  <!-- 色环选择器 -->
+  <view class="section">
+    <text class="section-title">选择色环颜色</text>
+    <view class="color-selectors">
+      <view wx:for="{{bandLabels}}" wx:key="index" class="color-selector">
+        <text class="color-label">{{item}}</text>
+        <view 
+          class="color-box" 
+          style="background: {{colors[selectedColors[index]].value}};"
+          data-index="{{index}}"
+          bindtap="openColorPicker"
+        ></view>
+        <text class="color-name">{{colors[selectedColors[index]].name}}</text>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 计算结果 -->
+  <view class="section">
+    <text class="section-title">计算结果</text>
+    <view class="result-item">
+      <text class="result-label">电阻值：</text>
+      <text class="result-value">{{resistanceValue}}</text>
+    </view>
+    <view class="result-item">
+      <text class="result-label">误差：</text>
+      <text class="result-value">{{toleranceValue}}</text>
+    </view>
+    <view class="result-item" wx:if="{{bandType === 6}}">
+      <text class="result-label">温度系数：</text>
+      <text class="result-value">{{tempCoeffValue}}</text>
+    </view>
+  </view>
+  
+  <!-- 说明区域 -->
+  <view class="section instruction">
+    <text class="section-title">色环电阻说明</text>
+    <view class="note">
+      <text>• 4色环电阻：前两环代表有效数字，第三环是乘数，第四环是误差</text>
+      <text>• 5色环电阻：前三环代表有效数字，第四环是乘数，第五环是误差（精度更高）</text>
+      <text>• 6色环电阻：前三环代表有效数字，第四环是乘数，第五环是误差，第六环是温度系数</text>
+      <text>• 提示：点击色环可以更改颜色，结果将实时更新</text>
+    </view>
+  </view>
+  
+  <!-- 颜色选择器模态框 -->
+  <view class="modal" wx:if="{{showColorPicker}}">
+    <view class="modal-content">
+      <text class="modal-title">选择颜色</text>
+      <view class="color-options">
+        <view 
+          wx:for="{{availableColors}}" 
+          wx:key="index"
+          class="color-option" 
+          style="background: {{item.value}};"
+          data-color="{{item.key}}"
+          bindtap="selectColor"
+        >
+          <text class="option-name">{{item.name}}</text>
+        </view>
+      </view>
+      <button class="btn-close" bindtap="closeColorPicker">关闭</button>
+    </view>
+  </view>
+</view>

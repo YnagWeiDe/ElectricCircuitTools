@@ -1,0 +1,115 @@
+<!--index.wxml-->
+<view class="container">
+  <!-- 标题区域 -->
+  <view class="header">
+    <view class="title">电阻分压计算器</view>
+    <view class="subtitle">输入高低电位和电阻值，计算参考电位Vef</view>
+  </view>
+
+  <!-- 输入区域 -->
+  <view class="card input-section">
+    <view class="input-group">
+      <!-- U1 输入 -->
+      <view class="input-item">
+        <text class="input-label">高电位 U1:</text>
+        <view class="input-row">
+          <input 
+            class="input-value" 
+            type="number" 
+            placeholder="输入数值"
+            value="{{U1}}"
+            bindinput="onU1Input"
+          />
+          <picker class="unit-picker" range="{{voltageUnits}}" value="{{U1UnitIndex}}" bindchange="onU1UnitChange">
+            <view class="picker-view">{{voltageUnits[U1UnitIndex]}}</view>
+          </picker>
+        </view>
+      </view>
+      
+      <!-- U2 输入 -->
+      <view class="input-item">
+        <text class="input-label">低电位 U2:</text>
+        <view class="input-row">
+          <input 
+            class="input-value" 
+            type="number" 
+            placeholder="输入数值"
+            value="{{U2}}"
+            bindinput="onU2Input"
+          />
+          <picker class="unit-picker" range="{{voltageUnits}}" value="{{U2UnitIndex}}" bindchange="onU2UnitChange">
+            <view class="picker-view">{{voltageUnits[U2UnitIndex]}}</view>
+          </picker>
+        </view>
+      </view>
+      
+      <!-- R1 输入 -->
+      <view class="input-item">
+        <text class="input-label">上偏电阻 R1:</text>
+        <view class="input-row">
+          <input 
+            class="input-value" 
+            type="number" 
+            placeholder="输入数值"
+            value="{{R1}}"
+            bindinput="onR1Input"
+          />
+          <picker class="unit-picker" range="{{resistanceUnits}}" value="{{R1UnitIndex}}" bindchange="onR1UnitChange">
+            <view class="picker-view">{{resistanceUnits[R1UnitIndex]}}</view>
+          </picker>
+        </view>
+      </view>
+      
+      <!-- R2 输入 -->
+      <view class="input-item">
+        <text class="input-label">下偏电阻 R2:</text>
+        <view class="input-row">
+          <input 
+            class="input-value" 
+            type="number" 
+            placeholder="输入数值"
+            value="{{R2}}"
+            bindinput="onR2Input"
+          />
+          <picker class="unit-picker" range="{{resistanceUnits}}" value="{{R2UnitIndex}}" bindchange="onR2UnitChange">
+            <view class="picker-view">{{resistanceUnits[R2UnitIndex]}}</view>
+          </picker>
+        </view>
+      </view>
+    </view>
+    
+    
+  </view>
+
+  <!-- 计算结果区域 -->
+  <view class="card result-section">
+    <view class="result-title">计算结果</view>
+    <view class="result-value">
+      <text>参考电位 Vef = </text>
+      <text class="highlight">{{Vef}} {{VefUnit}}</text>
+    </view>
+    
+    <view class="formula">
+      <text>计算公式: Vef = U2 + (U1 - U2) × (R2) / (R1 + R2)</text>
+    </view>
+    
+    <view class="formula-breakdown">
+      <text>计算过程:</text>
+      <text>{{breakdownText}}</text>
+    </view>
+  </view>
+
+  <!-- 说明区域 -->
+  <view class="card instruction-section">
+    <view class="instruction-title">分压原理说明</view>
+    <view class="instruction-content">
+      <text>1. 电阻分压电路由两个电阻串联组成</text>
+      <text>2. 高电位(U1)通过上偏电阻(R1)连接到参考点(Vef)</text>
+      <text>3. 参考点(Vef)通过下偏电阻(R2)连接到低电位(U2)</text>
+      <text>4. 参考点电压Vef计算公式: Vef = U2 + (U1 - U2) × R2 / (R1 + R2)</text>
+      <text>5. 当U2=0V时，公式简化为: Vef = U1 × R2 / (R1 + R2)</text>
+      <text>6. 电阻单位: Ω(欧姆), kΩ(千欧), MΩ(兆欧)</text>
+      <text>7. 电压单位: V(伏特), mV(毫伏), μV(微伏)</text>
+    </view>
+  </view>
+</view>

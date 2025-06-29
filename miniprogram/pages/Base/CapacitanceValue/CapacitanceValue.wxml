@@ -1,0 +1,47 @@
+<view class="container">
+  <view class="card">
+    <view class="input-group">
+      <text class="label">电容编码：</text>
+      <input 
+        type="text" 
+        placeholder="如：103" 
+        value="{{code}}" 
+        bindinput="onInput" 
+        class="input"
+      />
+    </view>
+
+    <view class="input-group">
+      <text class="label">容差：</text>
+      <picker 
+        range="{{tolerances}}" 
+        value="{{toleranceIndex}}" 
+        bindchange="onToleranceChange"
+      >
+        <view class="picker">
+          {{toleranceIndex === 0 ? "请选择容差" : tolerances[toleranceIndex]}}
+        </view>
+      </picker>
+    </view>
+
+    <button type="primary" bindtap="calculate" class="button">计算</button>
+
+    <view class="result" wx:if="{{showResults}}">
+      <view class="main-result">{{mainResult}}</view>
+      
+      <view class="other-results">
+        <text class="other-label">其他单位：</text>
+        <text wx:for="{{otherResults}}" wx:key="index" class="other-value">
+          {{item}}{{index < otherResults.length - 1 ? '，' : ''}}
+        </text>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 固定在底部的提示 -->
+  <view class="fixed-hint">
+    <text>提示：</text>
+    <text>1. 输入3-4位数字编码，如"103"表示10×10³ pF</text>
+    <text>2. 如果电容没有标注容差，请保持"未选择"状态</text>
+  </view>
+</view>

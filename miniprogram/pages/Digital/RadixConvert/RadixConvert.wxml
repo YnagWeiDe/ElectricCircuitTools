@@ -1,0 +1,79 @@
+<!-- wxml -->
+<view class="container">
+  <!-- 标题区域 -->
+  <view class="header">
+    <text class="title">进制转换工具</text>
+    <text class="subtitle">支持2进制、8进制、10进制、16进制和8421BCD码转换</text>
+  </view>
+  
+  <!-- 输入区域 -->
+  <view class="card input-section">
+    <view class="input-row">
+      <input 
+        class="value-input" 
+        placeholder="输入数值" 
+        value="{{inputValue}}"
+        bindinput="onInput"
+      />
+      <picker value="{{baseIndex}}" range="{{baseOptions}}" bindchange="onBaseChange">
+        <view class="base-picker">
+          {{baseOptions[baseIndex]}}
+        </view>
+      </picker>
+    </view>
+    <view class="input-underline"></view>
+  </view>
+  
+  <!-- 错误提示 -->
+  <view wx:if="{{error}}" class="error-card">
+    <text class="error-text">{{error}}</text>
+  </view>
+  
+  <!-- 结果区域 -->
+  <view class="card result-section">
+    <view class="result-item">
+      <text class="result-label">2进制原码：</text>
+      <text class="result-value">{{binaryOriginal || '--'}}</text>
+    </view>
+    <view class="result-item">
+      <text class="result-label">2进制反码：</text>
+      <text class="result-value">{{binaryInverse || '--'}}</text>
+    </view>
+    <view class="result-item">
+      <text class="result-label">2进制补码：</text>
+      <text class="result-value">{{binaryComplement || '--'}}</text>
+    </view>
+    <view class="result-item">
+      <text class="result-label">8进制：</text>
+      <text class="result-value">{{octal || '--'}}</text>
+    </view>
+    <view class="result-item">
+      <text class="result-label">16进制：</text>
+      <text class="result-value">{{hex || '--'}}</text>
+    </view>
+    <view class="result-item">
+      <text class="result-label">8421BCD码：</text>
+      <text class="result-value">{{bcd || '--'}}</text>
+    </view>
+  </view>
+  
+  <!-- 计算过程 -->
+  <view class="card process-section">
+    <text class="process-title">计算过程：</text>
+    <text class="process-text">{{processText || '等待输入...'}}</text>
+  </view>
+  
+  <!-- 提示区域 -->
+  <view class="card instruction">
+    <view class="instruction-header">
+      <text class="instruction-title">使用说明</text>
+    </view>
+    <view class="instruction-content">
+      <text class="instruction-item">• 输入数值后选择其进制类型，自动计算结果</text>
+      <text class="instruction-item">• 支持2进制、8进制、10进制、16进制和8421BCD码</text>
+      <text class="instruction-item">• 8421BCD码每4位表示一个十进制数字</text>
+      <text class="instruction-item">• 负数将计算原码、反码和补码</text>
+      <text class="instruction-item">• 计算结果最多保留8位有符号整数范围</text>
+    </view>
+  </view>
+</view>

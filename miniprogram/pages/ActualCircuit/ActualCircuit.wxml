@@ -1,0 +1,24 @@
+<!-- pages/community/community.wxml -->
+<view class="container">
+  <!-- 导航栏 todo 样式还没做 -->
+  <view class="nav-bar">
+    <view class="nav-btn" bindtap="handleBack">
+      <icon type="back" size="20" color="#333"></icon>
+    </view>
+    <text class="nav-title">模拟电路计算</text>
+  </view>
+
+  <!-- 内容区域 -->
+  <scroll-view class="main-content" scroll-y>
+    <!-- 双列网格布局 -->
+    <view class="grid-container">
+      <!--里面包含串并联计算 -->
+
+      <view class="card CapacitanceValue-card" bindtap="ToGetRes">
+        <text class="card-title">Vef偏置电阻</text>
+        <text class="card-desc">计算对应Vef需要的偏执电阻</text>
+      </view>
+
+    </view>
+  </scroll-view>
+</view>

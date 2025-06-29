@@ -1,0 +1,129 @@
+.container {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #f0f2f5;
+    position: relative;
+    padding-bottom: 180px; /* 为固定提示留出空间 */
+    box-sizing: border-box;
+  }
+  
+  .page-title {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 25px;
+    color: #8E54E9; /* 紫色主题 */
+  }
+  
+  .card {
+    background-color: white;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    margin-bottom: 20px;
+  }
+  
+  .input-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .label {
+    width: 90px;
+    font-weight: 500;
+    color: #333;
+    font-size: 16px;
+  }
+  
+  .input {
+    flex: 1;
+    border: 1px solid #e0e0e0;
+    padding: 12px 15px;
+    border-radius: 8px;
+    font-size: 16px;
+    margin-right: 10px;
+  }
+  
+  .unit-picker {
+    width: 100px;
+  }
+  
+  .picker {
+    border: 1px solid #e0e0e0;
+    padding: 12px 15px;
+    border-radius: 8px;
+    font-size: 16px;
+    text-align: center;
+    color: #333;
+  }
+  
+  .button {
+    margin-top: 15px;
+    border-radius: 8px;
+    font-weight: bold;
+    background-color: #8E54E9;
+    font-size: 16px;
+    height: 48px;
+    line-height: 48px;
+    color: white;
+  }
+  
+  .result {
+    margin-top: 25px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    border: 1px solid #e8e8e8;
+  }
+  
+  .result-row {
+    margin-bottom: 15px;
+  }
+  
+  .result-label {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 5px;
+    display: block;
+  }
+  
+  .result-value {
+    font-size: 18px;
+    font-weight: bold;
+    color: #8E54E9;
+  }
+  
+  .result-expression {
+    font-size: 16px;
+    font-family: monospace;
+    background-color: #f5f5f5;
+    padding: 10px;
+    border-radius: 6px;
+    display: block;
+    margin-top: 5px;
+    color: #333;
+    overflow-x: auto;
+  }
+  
+  /* 固定在底部的提示 */
+  .fixed-hint {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #f8f8f8;
+    padding: 15px 20px;
+    border-top: 1px solid #e0e0e0;
+    font-size: 14px;
+    color: #666;
+    line-height: 1.6;
+    z-index: 10;
+  }
+  
+  .fixed-hint text {
+    display: block;
+    margin-bottom: 5px;
+  }

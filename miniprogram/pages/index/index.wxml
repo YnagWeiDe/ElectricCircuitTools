@@ -1,0 +1,44 @@
+<view class="container">
+  <view class="card">
+    <view class="header">
+      <text class="title">用户反馈</text>
+      <text class="subtitle">您的意见对我非常重要</text>
+    </view>
+
+    <view class="contact-card">
+        <view class="contact-item">
+            <text class="contact-label">邮箱:</text>
+        </view>
+      <view class="contact-item">
+        <text class="contact-value">2227355261@qq.com</text>
+        <button class="copy-btn" bindtap="copyEmail">复制</button>
+      </view>
+      <view class="contact-item">
+            <text class="contact-label">微信:</text>
+        </view>
+      <view class="contact-item">
+        <text class="contact-value">Yang19905494385       </text>
+        <button class="copy-btn" bindtap="copyWeChat">复制</button>
+      </view>
+      <view class="contact-item">
+            <text class="contact-label">QQ:</text>
+        </view>
+      <view class="contact-item">
+        <text class="contact-value">2227355261</text>
+        <button class="copy-btn" bindtap="copyQQ">复制</button>
+      </view>
+    </view>
+    
+    <view class="thank-you">
+      <text>感谢您的支持！</text>
+      <text>我会认真阅读每一条反馈</text>
+    </view>
+  </view>
+
+  <view class="fixed-hint">
+    <text>1. 出现不合理答案时请联系我，感谢你的支持！！</text>
+    <text>2. 让我们一起完善这个软件吧！！</text>
+    <text>3. 精力有限，抽时间搞！！</text>
+  </view>
+
+</view>

@@ -1,0 +1,90 @@
+<view class="container">
+  <view class="card">
+    <text class="page-title">基础电源计算</text>
+    
+    <!-- 电压输入组 -->
+    <view class="input-group">
+      <text class="label">电压:</text>
+      <input 
+        type="number" 
+        placeholder="输入电压值" 
+        value="{{voltageValue}}" 
+        bindinput="onVoltageInput" 
+        class="input"
+      />
+      <picker 
+        range="{{voltageUnits}}" 
+        value="{{voltageUnitIndex}}" 
+        bindchange="onVoltageUnitChange"
+        class="unit-picker"
+      >
+        <view class="picker">{{voltageUnits[voltageUnitIndex]}}</view>
+      </picker>
+    </view>
+    
+    <!-- 电流输入组 -->
+    <view class="input-group">
+      <text class="label">电流:</text>
+      <input 
+        type="number" 
+        placeholder="输入电流值" 
+        value="{{currentValue}}" 
+        bindinput="onCurrentInput" 
+        class="input"
+      />
+      <picker 
+        range="{{currentUnits}}" 
+        value="{{currentUnitIndex}}" 
+        bindchange="onCurrentUnitChange"
+        class="unit-picker"
+      >
+        <view class="picker">{{currentUnits[currentUnitIndex]}}</view>
+      </picker>
+    </view>
+    
+    <!-- 电阻输入组 -->
+    <view class="input-group">
+      <text class="label">电阻:</text>
+      <input 
+        type="number" 
+        placeholder="输入电阻值" 
+        value="{{resistanceValue}}" 
+        bindinput="onResistanceInput" 
+        class="input"
+      />
+      <picker 
+        range="{{resistanceUnits}}" 
+        value="{{resistanceUnitIndex}}" 
+        bindchange="onResistanceUnitChange"
+        class="unit-picker"
+      >
+        <view class="picker">{{resistanceUnits[resistanceUnitIndex]}}</view>
+      </picker>
+    </view>
+    
+    <button type="primary" bindtap="calculate" class="button">计算</button>
+    
+    <view class="result" wx:if="{{showResults}}">
+      <view class="result-item">
+        <text class="result-label">计算结果:</text>
+        <text class="result-value">{{result}}</text>
+      </view>
+      
+      <view class="other-results" wx:if="{{otherResults.length > 0}}">
+        <text class="other-label">其他单位:</text>
+        <text wx:for="{{otherResults}}" wx:key="index" class="other-value">
+          {{item}}{{index < otherResults.length - 1 ? '，' : ''}}
+        </text>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 固定在底部的提示 -->
+  <view class="fixed-hint">
+    <text>提示：输入任意两个值，计算第三个值</text>
+    <text>基本公式：电压(V) = 电流(A) × 电阻(Ω)</text>
+    <text>单位换算：1V = 1000mV = 1000000μV</text>
+    <text>单位换算：1A = 1000mA = 1000000μA</text>
+    <text>单位换算：1kΩ = 1000Ω, 1MΩ = 1000000Ω</text>
+  </view>
+</view>

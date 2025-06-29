@@ -1,0 +1,207 @@
+/* 页面样式 */
+page {
+  background-color: #121212;
+  color: #e0e0e0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  padding: 20rpx;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 100%;
+  margin: 0 auto;
+  padding-bottom: 40rpx;
+}
+
+/* 标题区域 */
+.header {
+  text-align: center;
+  margin-bottom: 40rpx;
+  padding: 30rpx 0;
+  border-bottom: 1rpx solid #333;
+}
+
+.title {
+  font-size: 40rpx;
+  font-weight: bold;
+  color: #64ffda;
+  display: block;
+  margin-bottom: 15rpx;
+}
+
+.subtitle {
+  font-size: 28rpx;
+  color: #9e9e9e;
+  display: block;
+}
+
+/* 内容区域 */
+.section {
+  background-color: #1e1e1e;
+  border-radius: 20rpx;
+  padding: 30rpx;
+  margin-bottom: 30rpx;
+  box-shadow: 0 8rpx 30rpx rgba(0, 0, 0, 0.3);
+}
+
+.section-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #64ffda;
+  display: block;
+  margin-bottom: 30rpx;
+}
+
+/* 单选按钮组 */
+.radio-group {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.radio-item {
+  flex: 1;
+  min-width: 200rpx;
+  margin-bottom: 20rpx;
+  display: flex;
+  align-items: center;
+  font-size: 28rpx;
+}
+
+.radio-item text {
+  margin-left: 15rpx;
+}
+
+/* 颜色选择器 */
+.color-selectors {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.color-selector {
+  width: 210rpx;
+  margin-bottom: 30rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.color-label {
+  font-size: 26rpx;
+  color: #9e9e9e;
+  margin-bottom: 15rpx;
+}
+
+.color-box {
+  width: 100rpx;
+  height: 60rpx;
+  border-radius: 10rpx;
+  border: 2rpx solid #333;
+  margin-bottom: 10rpx;
+}
+
+.color-name {
+  font-size: 24rpx;
+  color: #bdbdbd;
+  text-align: center;
+}
+
+/* 结果区域 */
+.result-item {
+  display: flex;
+  margin-bottom: 20rpx;
+  align-items: center;
+}
+
+.result-label {
+  width: 200rpx;
+  color: #9e9e9e;
+  font-weight: 500;
+  font-size: 28rpx;
+}
+
+.result-value {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #64ffda;
+}
+
+/* 说明区域 */
+.instruction .note {
+  display: flex;
+  flex-direction: column;
+  gap: 15rpx;
+}
+
+.instruction .note text {
+  display: block;
+  font-size: 26rpx;
+  color: #9e9e9e;
+  line-height: 1.6;
+}
+
+/* 颜色选择器模态框 */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: #252525;
+  border-radius: 20rpx;
+  padding: 40rpx;
+  width: 90%;
+  max-width: 700rpx;
+}
+
+.modal-title {
+  font-size: 36rpx;
+  color: #64ffda;
+  display: block;
+  text-align: center;
+  margin-bottom: 40rpx;
+}
+
+.color-options {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20rpx;
+}
+
+.color-option {
+  height: 120rpx;
+  border-radius: 10rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.option-name {
+  font-size: 24rpx;
+  color: white;
+  text-shadow: 0 0 5rpx rgba(0,0,0,0.8);
+  z-index: 2;
+  text-align: center;
+  padding: 0 5rpx;
+}
+
+.btn-close {
+  margin-top: 40rpx;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 10rpx;
+  font-size: 28rpx;
+}

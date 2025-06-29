@@ -1,0 +1,38 @@
+<!-- pages/community/community.wxml -->
+<view class="container">
+  <!-- 导航栏 todo 样式还没做 -->
+  <view class="nav-bar">
+    <view class="nav-btn" bindtap="handleBack">
+      <icon type="back" size="20" color="#333"></icon>
+    </view>
+    <text class="nav-title">数字电路计算</text>
+  </view>
+
+  <!-- 内容区域 -->
+  <scroll-view class="main-content" scroll-y>
+    <!-- 双列网格布局 -->
+    <view class="grid-container">
+      <!--里面包含串并联计算 -->
+      <view class="card DecimalConversion-card"  bindtap="ToRadixConvert">
+        <text class="card-title">进制换算</text>
+        <text class="card-desc">常见的进制转化</text>
+      </view>
+
+      <view class="card Logical-card" bindtap="ToLogic">
+        <text class="card-title">逻辑计算</text>
+        <text class="card-desc">计算逻辑操作</text>
+      </view>
+
+      <view class="card TruthTable-card" bindtap="ToTruthTable">
+        <text class="card-title">真值表</text>
+        <text class="card-desc">时序和非时序真值表</text>
+      </view>
+
+      <view class="card DigitalChip-card" bindtap="ToCommonlyDigital">
+        <text class="card-title">基础数字芯片</text>
+        <text class="card-desc">常用的基础数字芯片TTL和MOS</text>
+      </view>
+
+    </view>
+  </scroll-view>
+</view>

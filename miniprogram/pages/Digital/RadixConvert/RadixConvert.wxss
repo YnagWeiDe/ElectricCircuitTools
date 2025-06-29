@@ -1,0 +1,185 @@
+/* wxss */
+page {
+  background-color: #f5f7fa;
+  color: #333;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  line-height: 1.6;
+  padding: 20rpx;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding: 30rpx;
+}
+
+/* 标题区域 */
+.header {
+  text-align: center;
+  margin-bottom: 40rpx;
+  width: 100%;
+}
+
+.title {
+  font-size: 44rpx;
+  font-weight: bold;
+  color: #2c3e50;
+  display: block;
+  margin-bottom: 15rpx;
+}
+
+.subtitle {
+  font-size: 28rpx;
+  color: #7f8c8d;
+  display: block;
+}
+
+/* 卡片样式 */
+.card {
+  background-color: #fff;
+  border-radius: 16rpx;
+  padding: 40rpx;
+  box-shadow: 0 6rpx 18rpx rgba(0, 0, 0, 0.05);
+  width: 90%;
+  margin-bottom: 30rpx;
+}
+
+/* 输入区域 */
+.input-row {
+  display: flex;
+  align-items: center;
+  gap: 20rpx;
+}
+
+.value-input {
+  flex: 1;
+  font-size: 36rpx;
+  height: 80rpx;
+  border: 2rpx solid #e0e0e0;
+  border-radius: 12rpx;
+  padding: 0 20rpx;
+}
+
+.base-picker {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f0f5ff;
+  border: 2rpx solid #d6e4ff;
+  border-radius: 12rpx;
+  height: 80rpx;
+  width: 200rpx;
+  font-size: 32rpx;
+  color: #1a56db;
+  font-weight: 500;
+}
+
+.down-icon {
+  width: 30rpx;
+  height: 30rpx;
+  margin-left: 10rpx;
+}
+
+.input-underline {
+  height: 4rpx;
+  width: 100%;
+  margin-top: 20rpx;
+}
+
+/* 错误提示 */
+.error-card {
+  background-color: #fef2f2;
+  border-radius: 12rpx;
+  padding: 25rpx;
+  margin-top: -15rpx;
+  margin-bottom: 20rpx;
+  width: 90%;
+  border-left: 6rpx solid #ef4444;
+}
+
+.error-text {
+  font-size: 28rpx;
+  color: #ef4444;
+}
+
+/* 结果区域 */
+.result-section {
+  display: flex;
+  flex-direction: column;
+  gap: 25rpx;
+}
+
+.result-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.result-label {
+  font-size: 30rpx;
+  font-weight: 500;
+  color: #4b5563;
+}
+
+.result-value {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #1d4ed8;
+  max-width: 60%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* 计算过程 */
+.process-section {
+  background-color: #f8f9fa;
+}
+
+.process-title {
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #2c3e50;
+  display: block;
+  margin-bottom: 15rpx;
+}
+
+.process-text {
+  font-size: 26rpx;
+  color: #4b5563;
+  line-height: 1.8;
+}
+
+/* 提示区域 */
+.instruction-header {
+  margin-bottom: 15rpx;
+}
+
+.instruction-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+.instruction-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20rpx;
+}
+
+.instruction-item {
+  font-size: 26rpx;
+  color: #7f8c8d;
+  line-height: 1.6;
+}
+
+.card {
+  margin-top: 20rpx;
+background: rgb(214, 214, 214);
+width: 80%;
+border-radius: 16rpx;
+box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.05);
+padding: 30rpx;
+margin-bottom: 30rpx;
+}

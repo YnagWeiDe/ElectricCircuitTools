@@ -1,0 +1,322 @@
+/* index.wxss */
+page {
+    background-color: #f5f7fa;
+    font-family: 'PingFang SC', 'Helvetica Neue', Arial, sans-serif;
+    color: #2c3e50;
+    padding: 20rpx;
+  }
+  
+  .container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    max-width: 750rpx;
+    margin: 0 auto;
+  }
+  
+  .header {
+    text-align: center;
+    margin: 40rpx 0 30rpx;
+  }
+  
+  .title {
+    font-size: 44rpx;
+    font-weight: bold;
+    color: #3498db;
+    margin-bottom: 10rpx;
+  }
+  
+  .subtitle {
+    font-size: 28rpx;
+    color: #7f8c8d;
+  }
+  
+  .card {
+    background: white;
+    border-radius: 20rpx;
+    box-shadow: 0 6rpx 18rpx rgba(0, 0, 0, 0.05);
+    padding: 30rpx;
+    margin-bottom: 30rpx;
+  }
+  
+  .input-section {
+    padding: 30rpx;
+  }
+  
+  .input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 25rpx;
+  }
+  
+  .input-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .input-label {
+    font-size: 32rpx;
+    font-weight: 500;
+    color: #2c3e50;
+    width: 45%;
+  }
+  
+.input-row {
+    display: flex;
+    align-items: center;
+    gap: 20rpx;
+  }
+  
+  .input-value {
+    width: 50%;
+    font-size: 34rpx;
+    border: 2rpx solid #e0e0e0;
+    border-radius: 12rpx;
+    padding: 20rpx;
+    text-align: right;
+  }
+  
+
+  .unit-picker {
+    width: 200rpx;
+    border: 2rpx solid #e0e0e0;
+    border-radius: 12rpx;
+    padding: 20rpx;
+    background-color: #f8fafc;
+  }
+  
+  .picker-view {
+    font-size: 32rpx;
+    color: #3498db;
+    text-align: center;
+  }
+  
+  .calculate-btn {
+    margin-top: 40rpx;
+    background: linear-gradient(135deg, #a8dcff, #2311c7);
+    color: white;
+    font-size: 34rpx;
+    font-weight: bold;
+    border-radius: 12rpx;
+    padding: 25rpx 0;
+  }
+
+  .input-value:focus {
+    border-color: #3498db;
+  }
+  
+  .circuit-section {
+    position: relative;
+  }
+  
+  .circuit-title {
+    font-size: 36rpx;
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 30rpx;
+    text-align: center;
+  }
+  
+  .circuit-diagram {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    height: 600rpx;
+  }
+  
+  .power-source {
+    width: 100%;
+    height: 80rpx;
+    background-color: #3498db;
+    border-radius: 10rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10rpx;
+  }
+  
+  .power-label {
+    color: white;
+    font-weight: bold;
+    font-size: 32rpx;
+  }
+  
+  .resistor {
+    width: 300rpx;
+    height: 80rpx;
+    background-color: #f1c40f;
+    border-radius: 12rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    position: relative;
+    z-index: 2;
+  }
+  
+  .resistor::before, .resistor::after {
+    content: '';
+    position: absolute;
+    width: 40rpx;
+    height: 8rpx;
+    background: #7f8c8d;
+  }
+  
+  .resistor::before {
+    left: -40rpx;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  .resistor::after {
+    right: -40rpx;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  .resistor-r1 {
+    margin-top: 20rpx;
+  }
+  
+  .resistor-r2 {
+    margin-top: 20rpx;
+  }
+  
+  .vef-point {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 3;
+  }
+  
+  .vef-node {
+    width: 30rpx;
+    height: 30rpx;
+    background: #e74c3c;
+    border-radius: 50%;
+    border: 4rpx solid white;
+    box-shadow: 0 0 10rpx rgba(0,0,0,0.2);
+  }
+  
+  .vef-label {
+    background: #e74c3c;
+    color: white;
+    padding: 8rpx 20rpx;
+    border-radius: 40rpx;
+    font-size: 28rpx;
+    font-weight: bold;
+    margin-bottom: 15rpx;
+    white-space: nowrap;
+  }
+  
+  .ground {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20rpx;
+  }
+  
+  .ground-symbol {
+    width: 120rpx;
+    height: 20rpx;
+    background: #7f8c8d;
+    position: relative;
+  }
+  
+  .ground-symbol::before {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 20rpx;
+    width: 80rpx;
+    height: 20rpx;
+    background: #7f8c8d;
+  }
+  
+  .ground-symbol::after {
+    content: '';
+    position: absolute;
+    top: 140%;
+    left: 40rpx;
+    width: 40rpx;
+    height: 20rpx;
+    background: #7f8c8d;
+  }
+  
+  .ground-label {
+    margin-top: 70rpx;
+    font-size: 32rpx;
+    font-weight: bold;
+    color: #2c3e50;
+  }
+  
+  .result-section {
+    text-align: center;
+  }
+  
+  .result-title {
+    font-size: 36rpx;
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 30rpx;
+  }
+  
+  .result-value {
+    font-size: 48rpx;
+    font-weight: bold;
+    color: #e74c3c;
+    margin-bottom: 30rpx;
+  }
+  
+  .highlight {
+    color: #e74c3c;
+    font-size: 52rpx;
+  }
+  
+  .formula {
+    font-size: 28rpx;
+    color: #7f8c8d;
+    margin-bottom: 20rpx;
+    line-height: 1.6;
+  }
+  
+  .formula-breakdown {
+    font-size: 26rpx;
+    color: #3498db;
+    background-color: #f8f9fa;
+    padding: 20rpx;
+    border-radius: 12rpx;
+    line-height: 1.6;
+    margin-top: 20rpx;
+  }
+  
+  .instruction-section {
+    margin-bottom: 50rpx;
+  }
+  
+  .instruction-title {
+    font-size: 36rpx;
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 30rpx;
+    text-align: center;
+  }
+  
+  .instruction-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20rpx;
+  }
+  
+  .instruction-content text {
+    font-size: 28rpx;
+    line-height: 1.6;
+    color: #555;
+  }

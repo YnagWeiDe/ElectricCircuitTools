@@ -1,0 +1,44 @@
+/* pages/community/community.wxss */
+/* 保持原有导航栏样式 */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20rpx;
+    padding: 30rpx;
+  }
+  
+  .card {
+    height: 50rpx;
+    width: 260rpx;
+    border-radius: 24rpx;
+    padding: 30rpx;
+    margin: 10rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    box-shadow: 0 4rpx 12rpx rgba(0,0,0,0.08);
+  }
+  
+  .card-title {
+    font-size: 36rpx;
+    color: #fff;
+    font-weight: 600;
+    margin-bottom: 12rpx;
+  }
+  
+  /* 小字部分 */
+  .card-desc {
+    font-size: 20rpx;
+    color: rgba(255,255,255,0.9);
+  }
+  
+  /* 各卡片渐变色 */
+  .ResistanceValue-card { background: linear-gradient(135deg, #FF9A8B, #FF6B6B) }
+
+  .CapacitanceValue-card { background: linear-gradient(135deg, #4ECDC4, #45B7AF) }
+  .CurrentVoltageResistance-card { background: linear-gradient(135deg, #A389F4, #7B61FF) }
+  .Impedance-card { background: linear-gradient(135deg, #FFD93D, #FFC107) }
+  .Resonance-card { background: linear-gradient(135deg, #6C5CE7, #4834D4) }
+  .ValidValue-card{ background: linear-gradient(135deg,#3eacec,#66c7ff)}
+  .feedback-card{ background: linear-gradient(135deg,#c53232,#d40404)}

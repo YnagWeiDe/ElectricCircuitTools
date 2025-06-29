@@ -1,0 +1,56 @@
+<view class="container">
+  <!-- 标题区域 -->
+  <view class="header">
+    <text class="title">布尔函数化简工具</text>
+    <text class="subtitle">输入布尔表达式，自动计算最简形式</text>
+  </view>
+  
+  <!-- 输入区域 -->
+  <view class="card input-section">
+    <textarea 
+      class="expression-input" 
+      placeholder="输入布尔表达式（如 A'B'C + AB'C）" 
+      value="{{expression}}"
+      bindinput="onExpressionInput"
+      auto-height
+    />
+    <view class="button-row">
+      <button class="simplify-btn" bindtap="simplifyExpression">化简</button>
+      <button class="clear-btn" bindtap="clearInput">清空</button>
+    </view>
+  </view>
+  
+  <!-- 错误提示 -->
+  <view wx:if="{{error}}" class="error-card">
+    <text class="error-text">{{error}}</text>
+  </view>
+  
+  <!-- 结果区域 -->
+  <view class="card result-section">
+    <view class="result-item">
+      <text class="result-label">化简结果：</text>
+      <text class="result-value">{{result || '等待计算...'}}</text>
+    </view>
+  </view>
+  
+  <!-- 计算过程 -->
+  <view class="card process-section">
+    <text class="process-title">计算过程：</text>
+    <text class="process-text">{{processText || '输入表达式后点击"化简"按钮'}}</text>
+  </view>
+  
+  <!-- 提示区域 -->
+  <view class="card instruction">
+    <view class="instruction-header">
+      <text class="instruction-title">使用说明</text>
+    </view>
+    <view class="instruction-content">
+        <text class="instruction-item">• 因为能力有限暂时不支持括号，需要你先拆分一下</text>
+      <text class="instruction-item">• 输入布尔表达式，如：A'B'C + AB'C</text>
+      <text class="instruction-item">• 支持变量 A, B, C, D</text>
+      <text class="instruction-item">• 使用单引号 ' 表示补（如 A'）</text>
+      <text class="instruction-item">• 使用 + 号连接不同的乘积项</text>
+      <text class="instruction-item">• 点击"化简"按钮计算最简表达式</text>
+    </view>
+  </view>
+</view>

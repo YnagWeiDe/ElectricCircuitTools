@@ -1,0 +1,54 @@
+<!-- index.wxml -->
+<view class="container">
+  <!-- 标题区域 -->
+  <view class="header">
+    <view class="title">E96电阻值计算器</view>
+    <view class="subtitle">输入3位代码，自动计算电阻值</view>
+  </view>
+
+  <!-- 输入区域 -->
+  <view class="card input-section">
+    <input 
+      class="code-input" 
+      placeholder="输入3位代码" 
+      maxlength="3"
+      value="{{code}}"
+      bindinput="onCodeInput"
+    />
+  </view>
+
+  <!-- 结果区域 -->
+  <view class="card result-section">
+    <view class="result-row">
+      <text class="result-label">电阻值:</text>
+      <text class="result-value">{{resistanceValue}}</text>
+    </view>
+    
+    <view class="breakdown">
+      <text>{{breakdownText}}</text>
+    </view>
+  </view>
+
+  <!-- 说明区域 -->
+  <view class="card instruction-section">
+    <view class="instruction-title">使用说明</view>
+    <view class="instruction-content">
+
+      <view>输入格式: 2位数字 + 1位字母（如01A）</view>
+      <view>前2位数字: E96标准值序号（01-96）</view>
+      <view>第3位字母: 乘数系数（如下表）</view>
+      
+      <view class="example">
+        <view>示例:\n</view>
+        <view>01A = 100 × 10⁰ = 100Ω\n</view>
+        <view>01X = 100 × 10⁻¹ = 10Ω\n</view>
+        <view>02B = 102 × 10² = 10.2kΩ</view>
+      </view>
+      
+      <view>\n乘数对照表:</view>
+      <view>\nX → 10⁻¹ (0.1)   R → 10⁻² (0.01)</view>
+      <view>\nA → 10⁰ (1)      B → 10² (100)</view>
+      <view>\nC → 10³ (1000)   D → 10⁴ (10000)</view>
+    </view>
+  </view>
+</view>

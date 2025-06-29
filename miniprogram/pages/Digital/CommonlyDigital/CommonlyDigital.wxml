@@ -1,0 +1,107 @@
+<!-- index.wxml -->
+<view class="container">
+  <!-- 标题区域 -->
+  <view class="header">
+    <text class="title">常用基础数字芯片功能查询</text>
+    <text class="subtitle">选择芯片系列与型号，查看功能说明</text>
+  </view>
+  
+  <!-- 选择区域 -->
+  <view class="card selector-section">
+    <view class="selector-group">
+      <text class="selector-label">芯片系列：</text>
+      <picker 
+        value="{{seriesIndex}}" 
+        range="{{seriesList}}" 
+        bindchange="onSeriesChange"
+        class="selector"
+      >
+        <view class="picker-view">
+          <text>{{seriesList[seriesIndex]}}</text>
+          <image src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%233498db'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E" class="down-icon" />
+        </view>
+      </picker>
+    </view>
+    
+    <view class="divider"></view>
+    
+    <view class="selector-group">
+      <text class="selector-label">芯片型号：</text>
+      <picker 
+        value="{{chipIndex}}" 
+        range="{{chipList}}" 
+        bindchange="onChipChange"
+        class="selector"
+      >
+        <view class="picker-view">
+          <text>{{chipList[2*chipIndex]}} </text>
+        </view>
+      </picker>
+    </view>
+  </view>
+  
+  <!-- 芯片信息区域 -->
+  <view class="card info-section">
+    <view class="section-header">
+      <text class="section-title">{{currentChip.model}} - {{currentChip.name}}</text>
+      <text class="section-subtitle">功能描述</text>
+    </view>
+    
+    <view class="chip-info">
+      <view class="info-row">
+        <text class="info-value">{{currentChip.description}}</text>
+      </view>
+    </view>
+    
+    <view class="divider light"></view>
+    
+    <view class="section-header">
+      <text class="section-subtitle">技术参数</text>
+    </view>
+    
+    <view class="chip-params">
+      <view class="param-row">
+        <text class="param-label">逻辑功能：</text>
+        <text class="param-value">{{currentChip.function}}</text>
+      </view>
+      <view class="param-row">
+        <text class="param-label">输入数量：</text>
+        <text class="param-value">{{currentChip.inputs}}</text>
+      </view>
+      <view class="param-row">
+        <text class="param-label">门电路数量：</text>
+        <text class="param-value">{{currentChip.gates}}</text>
+      </view>
+      <view class="param-row">
+        <text class="param-label">输出类型：</text>
+        <text class="param-value">{{currentChip.outputType}}</text>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 芯片示意图 -->
+  <view class="card chip-diagram">
+    <view class="section-header">
+      <text class="section-title">芯片引脚图</text>
+    </view>
+    
+    <view class="diagram-container">
+      <view class="pin-container">
+        <view class="pin-row" wx:for="{{currentChip.pins}}" wx:key="index">
+          <view class="pin left">{{item.left}}</view>
+          <view class="pin-number">{{index + 1}}</view>
+          <view class="pin right">{{item.right}}</view>
+        </view>
+      </view>
+      
+      <view class="chip-body">
+        <text class="chip-label">{{currentChip.model}}</text>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 底部提示 -->
+  <view class="footer">
+    <text>共收录 {{totalChips}} 款74LS系列芯片数据</text>
+  </view>
+</view>

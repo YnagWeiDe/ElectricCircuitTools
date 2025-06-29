@@ -1,0 +1,125 @@
+/* WXSS */
+page {
+    background-color: #f5f7fa;
+    color: #333;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.6;
+  }
+  
+  .container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding-bottom: 40rpx;
+    display: flex;
+    flex-direction: column;
+    gap: 30rpx;
+  }
+  
+  /* 标题区域 */
+  .header {
+    text-align: center;
+  }
+  
+  .title {
+    font-size: 44rpx;
+    font-weight: bold;
+    color: #2c3e50;
+    display: block;
+    margin-bottom: 15rpx;
+  }
+  
+  .subtitle {
+    font-size: 28rpx;
+    color: #7f8c8d;
+    display: block;
+  }
+  
+  /* 卡片样式 */
+  .card {
+    background-color: #fff;
+    border-radius: 16rpx;
+    width: 80%;
+    padding: 40rpx;
+    margin-top: 40rpx;
+    box-shadow: 0 6rpx 18rpx rgba(0, 0, 0, 0.05);
+  }
+  
+  /* 输入区域 */
+  .code-input {
+    font-size: 44rpx;
+    text-align: center;
+    color: #3498db;
+    font-weight: bold;
+    height: 100rpx;
+    width: 100%;
+    letter-spacing: 4rpx;
+  }
+  
+  .input-underline {
+    height: 4rpx;
+    width: 100%;
+  }
+  
+  /* 结果区域 */
+  .result-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20rpx;
+  }
+  
+  .result-title {
+    font-size: 32rpx;
+    font-weight: bold;
+    color: #2c3e50;
+  }
+  
+  .result-value {
+    font-size: 44rpx;
+    font-weight: bold;
+    color: #e74c3c;
+  }
+  
+  .result-breakdown {
+    background-color: #f8f9fa;
+    border-radius: 12rpx;
+    padding: 25rpx;
+    margin-top: 25rpx;
+  }
+  
+  .breakdown-title {
+    font-size: 28rpx;
+    font-weight: bold;
+    color: #2c3e50;
+    display: block;
+    margin-bottom: 10rpx;
+  }
+  
+  .breakdown-text {
+    font-size: 26rpx;
+    color: #7f8c8d;
+    line-height: 1.7;
+  }
+  
+  /* 提示区域 */
+  .instruction-header {
+    margin-bottom: 15rpx;
+  }
+  
+  .instruction-title {
+    font-size: 32rpx;
+    font-weight: bold;
+    color: #2c3e50;
+  }
+  
+  .instruction-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20rpx;
+  }
+  
+  .instruction-item {
+    font-size: 26rpx;
+    color: #7f8c8d;
+    line-height: 1.6;
+  }

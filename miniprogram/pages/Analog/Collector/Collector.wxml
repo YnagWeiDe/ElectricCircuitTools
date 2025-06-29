@@ -1,0 +1,110 @@
+<!-- pages/collector-common/index.wxml -->
+<view class="container">
+  <!-- 标题和电路图 -->
+  <view class="header">
+    <view class="title">
+      <image src="/images/transistor.png" class="icon"></image>
+      <text>共集静态工作点计算器</text>
+    </view>
+  </view>
+  
+  <!-- 三极管类型选择 -->
+  <view class="type-selector">
+    <view class="type-option {{type === 'npn' ? 'active' : ''}}" bindtap="changeType" data-type="npn">
+      <image src="/images/npn.png" class="type-icon"></image>
+      <text>NPN</text>
+    </view>
+    <view class="type-option {{type === 'pnp' ? 'active' : ''}}" bindtap="changeType" data-type="pnp">
+      <image src="/images/pnp.png" class="type-icon"></image>
+      <text>PNP</text>
+    </view>
+  </view>
+  
+  <!-- 参数输入区域 -->
+  <view class="input-section">
+    <view class="section-title">
+      <text>电路参数设置</text>
+    </view>
+    
+    <view class="input-grid">
+      <view class="input-group">
+        <text class="input-label">基极电压 VBB (V)</text>
+        <input type="digit" value="{{vbb}}" bindinput="onInput" data-field="vbb" placeholder="输入VBB" />
+      </view>
+      <view class="input-group">
+        <text class="input-label">集电极电压 VCC (V)</text>
+        <input type="digit" value="{{vcc}}" bindinput="onInput" data-field="vcc" placeholder="输入VCC" />
+      </view>
+      <view class="input-group">
+        <text class="input-label">基极电阻 RB (kΩ)</text>
+        <input type="digit" value="{{rb}}" bindinput="onInput" data-field="rb" placeholder="输入RB" />
+      </view>
+      <view class="input-group">
+        <text class="input-label">发射极电阻 RE (kΩ)</text>
+        <input type="digit" value="{{re}}" bindinput="onInput" data-field="re" placeholder="输入RE" />
+      </view>
+      <view class="input-group">
+        <text class="input-label">放大倍数 β</text>
+        <input type="number" value="{{beta}}" bindinput="onInput" data-field="beta" placeholder="输入β" />
+      </view>
+      <view class="input-group">
+        <text class="input-label">Vbe (V)</text>
+        <input type="digit" value="{{vbe}}" bindinput="onInput" data-field="vbe" placeholder="输入Vbe" />
+      </view>
+    </view>
+  </view>
+  
+  <!-- 计算按钮 -->
+  <view class="action-section">
+    <button class="calc-btn" bindtap="calculate">
+      <text>计算静态工作点</text>
+    </button>
+  </view>
+  
+  <!-- 结果展示 -->
+  <view class="result-section">
+    <view class="section-title">
+      <text>计算结果</text>
+    </view>
+    
+    <view class="result-grid">
+      <view class="result-card">
+        <text class="result-label">基极电流 Ib</text>
+        <text class="result-value">{{ib || '--'}} μA</text>
+      </view>
+      <view class="result-card">
+        <text class="result-label">集电极电流 Ic</text>
+        <text class="result-value">{{ic || '--'}} mA</text>
+      </view>
+      <view class="result-card">
+        <text class="result-label">发射极电流 Ie</text>
+        <text class="result-value">{{ie || '--'}} mA</text>
+      </view>
+      <view class="result-card">
+        <text class="result-label">Vce</text>
+        <text class="result-value">{{vce || '--'}} V</text>
+      </view>
+      <view class="result-card">
+        <text class="result-label">工作状态</text>
+        <text class="result-value">{{calcState || '--'}}</text>
+        <view class="status-indicator {{calcStateClass}}">
+          {{calcState || ''}}
+        </view>
+      </view>
+      <view class="result-card">
+        <text class="result-label">电压增益</text>
+        <text class="result-value">{{gain || '--'}}</text>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 电路说明 -->
+  <view class="info-section">
+    <view class="section-title">
+      <text>电路说明</text>
+    </view>
+    <view class="info-content">
+      <text>共集电极电路（射极跟随器）特点：\n• 输入阻抗高\n• 输出阻抗低\n• 电压增益≈1\n• 电流增益大\n• 常用于阻抗匹配和缓冲电路</text>
+    </view>
+  </view>
+</view>

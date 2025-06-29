@@ -1,0 +1,251 @@
+/* index.wxss */
+/* 基础样式 */
+page {
+    background-color: #f5f5f5;
+    font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+    color: #333;
+    padding: 20rpx;
+    font-size: 28rpx;
+    line-height: 1.6;
+  }
+  
+  .container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    max-width: 750rpx;
+    margin: 0 auto;
+    padding-bottom: 40rpx;
+  }
+  
+  /* 头部样式 */
+  .header {
+    text-align: center;
+    margin: 40rpx 0 30rpx;
+  }
+  
+  .title {
+    font-size: 40rpx;
+    font-weight: bold;
+    color: #07C160;
+    margin-bottom: 10rpx;
+  }
+  
+  .subtitle {
+    font-size: 26rpx;
+    color: #666;
+  }
+  
+  /* 卡片样式 */
+  .card {
+    background: #fff;
+    width: 90%;
+    border-radius: 16rpx;
+    box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.05);
+    padding: 30rpx;
+    margin-bottom: 30rpx;
+  }
+  
+  /* 输入区域样式 */
+  .input-section {
+    padding: 30rpx;
+    position: relative;
+  }
+  
+  .input-item {
+    display: flex;
+    flex-direction: column;
+    gap: 15rpx;
+    margin-bottom: 25rpx;
+  }
+  
+  .input-label {
+    font-size: 32rpx;
+    font-weight: 500;
+    color: #333;
+  }
+  
+  .input-row {
+    display: flex;
+    align-items: center;
+    gap: 20rpx;
+  }
+  
+  .input-value {
+    flex: 1;
+    font-size: 34rpx;
+    border: 1rpx solid #e0e0e0;
+    border-radius: 8rpx;
+    padding: 20rpx;
+    background-color: #f8fafc;
+  }
+  
+  .unit-picker {
+    width: 180rpx;
+    border: 1rpx solid #e0e0e0;
+    border-radius: 8rpx;
+    padding: 20rpx;
+    background-color: #f8fafc;
+  }
+  
+  .picker-view {
+    font-size: 32rpx;
+    color: #07C160;
+    text-align: center;
+  }
+  
+  .calculate-btn {
+    margin-top: 20rpx;
+    background: #07C160;
+    color: white;
+    font-size: 34rpx;
+    font-weight: bold;
+    border-radius: 8rpx;
+    padding: 25rpx 0;
+  }
+  
+  .calculate-btn:active {
+    opacity: 0.8;
+  }
+  
+  .loading {
+    margin-top: 30rpx;
+    text-align: center;
+    font-size: 28rpx;
+    color: #666;
+  }
+  
+  /* 结果区域样式 */
+  .result-section {
+    padding: 30rpx;
+  }
+  
+  .result-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30rpx;
+  }
+  
+  .result-title {
+    font-size: 34rpx;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .result-count {
+    font-size: 28rpx;
+    color: #666;
+  }
+  
+  .table-header {
+    display: flex;
+    background-color: #07C160;
+    border-radius: 8rpx;
+    padding: 20rpx 15rpx;
+    margin-bottom: 15rpx;
+  }
+  
+  .table-header .table-cell {
+    flex: 1;
+    font-weight: bold;
+    color: white;
+    font-size: 30rpx;
+    text-align: center;
+  }
+  
+  .result-list {
+    max-height: 600rpx;
+  }
+  
+  .table-row {
+    display: flex;
+    padding: 20rpx 15rpx;
+    border-bottom: 1rpx solid #f0f0f0;
+    align-items: center;
+  }
+  
+  .table-row:last-child {
+    border-bottom: none;
+  }
+  
+  .table-cell {
+    flex: 1;
+    text-align: center;
+    font-size: 28rpx;
+    color: #555;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 40rpx;
+  }
+  
+  /* 无结果提示样式 */
+  .no-result {
+    text-align: center;
+    padding: 40rpx 30rpx;
+  }
+  
+  .no-result-text {
+    font-size: 32rpx;
+    color: #F44336;
+    font-weight: bold;
+    margin-bottom: 20rpx;
+    display: block;
+  }
+  
+  .no-result-hint {
+    font-size: 28rpx;
+    color: #666;
+  }
+  
+  /* 说明区域样式 */
+  .instruction-section {
+    margin-bottom: 50rpx;
+  }
+  
+  .instruction-title {
+    font-size: 36rpx;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 30rpx;
+    text-align: center;
+  }
+  
+  .instruction-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20rpx;
+  }
+  
+  .instruction-content text {
+    font-size: 28rpx;
+    line-height: 1.6;
+    color: #555;
+    padding: 10rpx 0;
+    border-bottom: 1rpx dashed #e0e0e0;
+  }
+  
+  .instruction-content text:last-child {
+    border-bottom: none;
+  }
+
+  /* 误差值颜色分级 */
+  .error-value {
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .low-error {
+    color: #07C160;  /* 绿色 - 精度高 */
+  }
+  
+  .medium-error {
+    color: #FF9C00;  /* 橙色 - 中等精度 */
+  }
+  
+  .high-error {
+    color: #F44336;  /* 红色 - 精度低 */
+  }
